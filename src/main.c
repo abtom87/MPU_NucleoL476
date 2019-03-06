@@ -118,8 +118,8 @@ void print_out_hex(char *buffer, uint32_t arg)
 	USART_Tx_string(buff);
 
 }
-
-extern char myArray[3];
+#define ARR_LEN 3
+extern char myArray[ARR_LEN]; /* See linker script */
 
 int main(void)
 {
@@ -147,7 +147,7 @@ int main(void)
 
 	Delay_ms(500);
 	if (BO_MemFault_Flag == TRUE)
-		myArray[0] = 2;
+		myArray[0] = 2; /* Violate the RO region */
 
 	while (1)
 	{

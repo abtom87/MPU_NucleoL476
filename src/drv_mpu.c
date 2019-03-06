@@ -12,7 +12,7 @@ void configure_MPU(void)
 {
 	MPU_Region_InitTypeDef MPU_initStruct;
 	HAL_MPU_Disable();
-	MPU_initStruct.BaseAddress      = 0x20005500;
+	MPU_initStruct.BaseAddress      = 0x20005500; /* Address where the arry is located */
 	MPU_initStruct.AccessPermission = MPU_REGION_PRIV_RO;
 	MPU_initStruct.DisableExec      = MPU_INSTRUCTION_ACCESS_ENABLE;
 	MPU_initStruct.Enable           = MPU_REGION_ENABLE;
